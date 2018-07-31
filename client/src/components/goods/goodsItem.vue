@@ -9,20 +9,28 @@
         </div>
         <div style="padding:12px;">
             <span class="status">{{ goods.status }}</span>
-            <el-button type="text" class="button">查看详情</el-button>
+            <el-button type="text" class="button" @click="switchShowDetail">查看详情</el-button>
         </div>
+        <v-goods-detail v-if="showDetail" @close="switchShowDetail"></v-goods-detail>
     </el-card>
 </template>
     
 <script>
+import VGoodsDetail from './GoodsDetail'    
 export default {
     name: 'goodsItem',
     data() {
         return {
-
+            showDetail: false
         }
     },
-    props: ['goods']
+    props: ['goods'],
+    components: { VGoodsDetail },
+    methods: {
+        switchShowDetail() {
+            this.showDetail = !this.showDetail;
+        }
+    }
 }
 </script>
     

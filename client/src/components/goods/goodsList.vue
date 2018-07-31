@@ -7,7 +7,7 @@
     
 <script>
 import VGoodsItem from './goodsItem'
-
+import { getGoodsList } from '../../api'
 export default {
     name: 'goodsList',
     data() {
@@ -15,7 +15,13 @@ export default {
 
         }
     },
-    components: { VGoodsItem }
+    components: { VGoodsItem },
+    methods: {
+        init() {}
+    },
+    mounted() {
+        getGoodsList().then(data => console.log(data))
+    },
 }
 </script>
     

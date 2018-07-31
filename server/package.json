@@ -6,7 +6,7 @@
     "start": "node index.js",
     "dev": " cross-env NODE_ENV=development nodemon index.js",
     "prod": "node ../client/build/build.js && cross-env NODE_ENV=production node index.js",
-    "test": "mocha ./test/user/user.test.js --require babel-core/register"
+    "test": "mocha ./test/goods/goods.test.js --require babel-core/register"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

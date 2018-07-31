@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 const mongoose = require('mongoose');
-import user from '../../controllers/user/auth';
+import user from '../../handlers/user/auth';
 
 describe('test user api', function() {
     before(function(done) {

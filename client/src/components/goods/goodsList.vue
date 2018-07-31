@@ -1,8 +1,6 @@
 <template>
     <div>
-        <div style="display: flex;">
-            <v-goods-item v-for="(goods, index) in goodsList" :key="index" :goods="goods"></v-goods-item>
-        </div>
+        <v-goods-item v-for="(goods, index) in goodsList" :key="index" :goods="goods"></v-goods-item>
         <el-button type="text">Load More</el-button>
     </div>
 </template>
@@ -27,7 +25,33 @@ export default {
         }
     },
     mounted() {
-        this.init()
+                // this.init()
+        this.goodsList = [
+            {name: 'CameraCameraCamera', status: '出售中', price: 99},
+            {name: 'CameraCameraCamera', status: '出售中', price: 99},
+            {name: 'CameraCameraCamera', status: '出售中', price: 99},
+            {name: 'CameraCameraCamera', status: '出售中', price: 99},
+            {name: 'CameraCameraCamera', status: '出售中', price: 99},
+            {name: 'CameraCameraCamera', status: '出售中', price: 99},
+            {name: 'CameraCameraCamera', status: '出售中', price: 99},
+            {name: 'CameraCameraCamera', status: '出售中', price: 99},
+            {name: 'CameraCameraCamera', status: '出售中', price: 99},
+
+            {name: 'Camera', status: '出售中', },
+            {name: 'Camera', status: '出售中', },
+            {name: 'Camera', status: '2018-07-31', },
+            {name: 'Camera', status: '2018-07-31', },
+            {name: 'Camera', status: '2018-07-31', },
+            {name: 'Camera', status: '2018-07-31', },
+            {name: 'Camera', status: '2018-07-31', },
+            {name: 'Camera', status: '2018-07-31', },
+            {name: 'Camera', status: '2018-07-31', },
+            {name: 'Camera', status: '2018-07-31', },
+            {name: 'Camera', status: '2018-07-31', },
+            {name: 'Camera', status: '2018-07-31', },
+            {name: 'Camera', status: '2018-07-31', },
+            {name: 'Camera', status: '2018-07-31', },
+        ]
     },
 }
 </script>

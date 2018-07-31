@@ -1,16 +1,17 @@
 <template>
-    <div>
-        <el-card :body-style="{ padding: '0px' }" shadow="hover">
+    <el-card :body-style="{ padding: '0px' }" shadow="hover">
+        <div class="image-wrapper">
             <img src="../../assets/car.jpg" class="image">
-            <div style="padding:14px;">
-                <span>{{goods.name}}</span>
-                <div class="bottom clearfix">
-                <time class="time">{{ goods.createAt.slice(0,10) }}</time>
-                <el-button type="text" class="button">操作按钮</el-button>
-                </div>
-            </div>
-        </el-card>
-    </div>
+        </div>
+        <div style="padding:12px;">
+            <span style="float: left">{{goods.name}}</span>
+            <span style="float: right; color: #f44336;">￥{{goods.price}}</span> 
+        </div>
+        <div style="padding:12px;">
+            <span class="status">{{ goods.status }}</span>
+            <el-button type="text" class="button">查看详情</el-button>
+        </div>
+    </el-card>
 </template>
     
 <script>
@@ -30,14 +31,25 @@ export default {
     margin: 20px;
     width: 250px;
     height: 300px;
+    display: inline-block;
 }
-.time {
+.status {
     font-size: 13px;
-    color: #999;
+    color: #f44336;
     text-align: left;
+    padding: 12px 0;
+    float: left;
+}
+.button {
+    float: right;
+}
+.image-wrapper {
+    width: 250px;
+    height: 220px;
 }
 .image {
     width: 100%;
+    height: 100%;
     display: block;
 }
 

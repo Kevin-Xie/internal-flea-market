@@ -1,6 +1,8 @@
 <template>
     <div>
-        <v-goods-item></v-goods-item>
+        <div style="display: flex;">
+            <v-goods-item v-for="(goods, index) in goodsList" :key="index" :goods="goods"></v-goods-item>
+        </div>
         <el-button type="text">Load More</el-button>
     </div>
 </template>
@@ -12,15 +14,20 @@ export default {
     name: 'goodsList',
     data() {
         return {
-
+            goodsList: []
         }
     },
     components: { VGoodsItem },
     methods: {
-        init() {}
+        init() {
+            getGoodsList().then(data => {
+                console.log(data)
+                this.goodsList = data;
+            })
+        }
     },
     mounted() {
-        getGoodsList().then(data => console.log(data))
+        this.init()
     },
 }
 </script>

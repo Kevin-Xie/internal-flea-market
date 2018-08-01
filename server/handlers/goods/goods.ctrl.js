@@ -15,8 +15,10 @@ class GoodsHandler {
         res.json(goods);
     }
 
-    async uploadImages(req, res, next) {
-        
+    async publishGoods(req, res, next) {
+        console.log(req.files)
+        console.log(req.body)
+        res.send('done')
     }
 }
 

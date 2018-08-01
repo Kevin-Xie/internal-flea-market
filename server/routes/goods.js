@@ -1,18 +1,16 @@
 import { GoodsHandler } from '../handlers/goods'
+import { batchUploadGoodsPic } from '../lib/multer'
 import express from 'express';
 let router = express.Router();
 
-const multer = require('multer');
-const upload = multer({dest: 'uploads/'});
+const MAX_UPLOAD_COUNT = 5
+
 
 router.get('/', GoodsHandler.getAllGoods);
 
+router.post('/', batchUploadGoodsPic(MAX_UPLOAD_COUNT), GoodsHandler.publishGoods);
+
 router.get('/:id', GoodsHandler.getGoodsById);
 
-router.post('/imgs', upload.array('file', 5), (req, res, next) => {
-    console.log(req.files)
-    console.log(req.body)
-    res.send('done')
-});
 
 export default router;

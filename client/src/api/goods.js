@@ -11,7 +11,7 @@ export const getGoodsList = async () => {
 
 export const uploadGoodsDetail = async (formData) => {
     try {
-        let response = await http.post("/api/goods/imgs", formData);
+        let response = await http.post("/api/goods/", formData);
         return response.data;
     } catch (error) {
         throw new Error(error.response.status + ' ' + error.response.statusText);

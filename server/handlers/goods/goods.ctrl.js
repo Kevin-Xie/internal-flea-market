@@ -14,6 +14,10 @@ class GoodsHandler {
         let goods = await GoodService.findById(req.params.id);
         res.json(goods);
     }
+
+    async uploadImages(req, res, next) {
+        
+    }
 }
 
 export default new GoodsHandler();

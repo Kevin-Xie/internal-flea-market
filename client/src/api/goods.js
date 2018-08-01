@@ -1,7 +1,19 @@
 import http from 'axios';
 
 export const getGoodsList = async () => {
-    let response = await http.get('/api/goods/');
-    return response.data;
+    try {
+        let response = await http.get('/api/goods/');
+        return response.data;
+    } catch (error) {
+        throw new Error(error.response.status + ' ' + error.response.statusText);
+    }   
 }
 
+export const uploadGoodsDetail = async (formData) => {
+    try {
+        let response = await http.post("/api/goods/imgs", formData);
+        return response.data;
+    } catch (error) {
+        throw new Error(error.response.status + ' ' + error.response.statusText);
+    }
+}

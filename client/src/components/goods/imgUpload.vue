@@ -1,5 +1,5 @@
 <template>
-  <el-form>
+  <div>
     <el-upload
       action="/api/goods/imgs"
       list-type="picture-card"
@@ -21,7 +21,7 @@
       <img width="100%" :src="dialogImageUrl" alt="">
     </el-dialog>
     <el-button type="primary" @click="submitForm">发布</el-button>
-  </el-form>  
+  </div>  
 </template>
 
 <script>

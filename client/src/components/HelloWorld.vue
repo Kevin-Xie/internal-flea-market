@@ -1,11 +1,11 @@
 <template>
   <div class="hello">
-    <v-img-upload></v-img-upload>
+    <v-publish-goods></v-publish-goods>
   </div>
 </template>
 
 <script>
-import VImgUpload from './goods/imgUpload'
+import VPublishGoods from './goods/publishGoods'
 export default {
   name: 'HelloWorld',
   data () {
@@ -13,7 +13,7 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
-  components: { VImgUpload },
+  components: { VPublishGoods },
   methods: {
 
   },

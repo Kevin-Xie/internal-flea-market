@@ -35,7 +35,7 @@ class GoodsHandler {
             let result = await GoodService.createNewGoods(goods);
             res.json(result);
         } catch (error) {
-            res.send(error);
+            res.send('Failed to create a new goods ', error);
         }
         
     }

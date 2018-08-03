@@ -26,6 +26,7 @@
 <script>
 import VImgUpload from './imgUpload';
 import { uploadGoodsInfo } from '../../api';
+import { successTip, errorTip } from '../common/message'
 export default {
     name: 'publishGoods',
     data() {
@@ -75,8 +76,12 @@ export default {
                 this.formData.append(key, this.goodsInfo[key])
             }
             uploadGoodsInfo(this.formData)
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
+            .then(goods => {
+                successTip('pulish successfully');
+            })
+            .catch(err => {
+                errorTip('publish failed, pleaes try again.');
+            })
         },
     }
 }

@@ -20,6 +20,14 @@ class GoodsService {
             throw new Error(error);
         }
     }
+
+    async createNewGoods(newGoods) {
+        try {
+            return await new GoodsModel(newGoods).save();
+        } catch (error) {
+            throw new (error);
+        }
+    }
 }
 
 export default new GoodsService();

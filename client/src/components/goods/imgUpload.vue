@@ -1,13 +1,12 @@
 <template>
   <div>
     <el-upload
-      action="/api/goods/imgs"
+      action="/api/goods/"
       list-type="picture-card"
       multiple
       accept="image/jpeg,image/png" 
       :auto-upload=false
       :limit=5
-      :file-list="fileList"
       :on-preview="handlePictureCardPreview"
       :on-remove="handleRemove"
       :on-exceed="handleExceed"
@@ -20,25 +19,21 @@
     <el-dialog :visible.sync="dialogVisible">
       <img width="100%" :src="dialogImageUrl" alt="">
     </el-dialog>
-    <el-button type="primary" @click="submitForm">发布</el-button>
   </div>  
 </template>
 
 <script>
-import { uploadGoodsDetail } from '../../api';
-
 export default {
   data() {
     return {
       dialogImageUrl: '',
       dialogVisible: false,
       fileList:[],
-      formData: '',
     };
   },
   methods: {
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+      // console.log(file, fileList);
     },
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
@@ -51,14 +46,11 @@ export default {
       // console.log('handleBeforeUpload', file)
     },
     uploadFile(data) {
-      this.formData.append('file', data.file)
+      this.fileList.push(data.file);
     },
-    submitForm() {
-      this.formData = new FormData();
+    getFileList() {
       this.$refs.upload.submit();
-      uploadGoodsDetail(this.formData)
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
+      return this.fileList;
     }
   }
 }

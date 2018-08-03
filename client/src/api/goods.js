@@ -9,7 +9,7 @@ export const getGoodsList = async () => {
     }   
 }
 
-export const uploadGoodsDetail = async (formData) => {
+export const uploadGoodsInfo = async (formData) => {
     try {
         let response = await http.post("/api/goods/", formData);
         return response.data;

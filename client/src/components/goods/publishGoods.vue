@@ -14,6 +14,9 @@
       <el-form-item label="description" prop="description">
         <el-input type="textarea" v-model.trim="goodsInfo.description" placeholder="description"></el-input>
       </el-form-item>
+      <el-form-item label="img upload">
+        <v-img-upload ref="upload"></v-img-upload>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('infoForm')">发布</el-button>
       </el-form-item>
@@ -21,7 +24,8 @@
 </template>
 
 <script>
-import VImgUpload from './imgUpload'
+import VImgUpload from './imgUpload';
+import { uploadGoodsInfo } from '../../api';
 export default {
     name: 'publishGoods',
     data() {
@@ -33,6 +37,7 @@ export default {
                 status: 'on_sale',
                 category: ''
             },
+            formData: '',
             categoryId: 0,
             categoryList: ['生活用品', '电子设备', '运动装备', '宠物相关', '学习用品', '衣着饰品', '其他'],
             rules: {
@@ -42,7 +47,7 @@ export default {
                 ],
                 price: [
                     { required: true, message: 'should not be empty', trigger: 'blur' },
-                    { type: 'number', message: 'price should be Number', transform(value) { return parseFloat(value)}},
+                    // { type: 'number', message: 'price should be Number', transform(value) { return _.toNumber(value)}},
                 ],
                 category: [
                     { required: true, message: 'please select one', trigger: 'change'}
@@ -55,16 +60,24 @@ export default {
     },
     components: { VImgUpload },
     methods: {
-        publishGoods() {
-            console.log('publishGoods')
-        },
         submitForm(formName) {
             this.$refs[formName].validate().then(valid => {
                 this.publishGoods();
             }).catch(err => {
-                console.log('Form validation failed')
+                console.log(err)
             })
-        }
+        },
+        publishGoods() {
+            this.formData = new FormData();
+            let imageList = this.$refs.upload.getFileList();
+            imageList.forEach(image => this.formData.append('file', image));
+            for (let key in this.goodsInfo) {
+                this.formData.append(key, this.goodsInfo[key])
+            }
+            uploadGoodsInfo(this.formData)
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+        },
     }
 }
 </script>

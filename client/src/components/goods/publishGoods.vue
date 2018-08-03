@@ -8,7 +8,7 @@
       </el-form-item>
       <el-form-item label="category" prop="category">
           <el-select v-model="goodsInfo.category" placeholder="category">
-            <el-option v-for="(item, index) in categoryList" :key="index" :value="index" :label="item"></el-option>
+            <el-option v-for="(item, index) in categoryList" :key="index" :value="item" :label="item"></el-option>
           </el-select>
       </el-form-item>
       <el-form-item label="description" prop="description">

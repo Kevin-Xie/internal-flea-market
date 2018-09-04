@@ -3,11 +3,11 @@
         <div class="image-wrapper">
             <img src="../../assets/car.jpg" class="image">
         </div>
-        <div style="padding:12px;">
-            <span style="float: left">{{goods.name}}</span>
-            <span style="float: right; color: #f44336;">￥{{goods.price}}</span> 
+        <div style="padding:12px; position: relative;">
+            <span style="position: relative;">{{goods.name}}</span>
+            <span style="position: absolute; right: 12px;">￥{{goods.price}}</span> 
         </div>
-        <div style="padding:12px;">
+        <div style="padding:12px; position: relative;">
             <span class="status">{{ goods.status }}</span>
             <el-button type="text" class="button" @click="switchShowDetail">查看详情</el-button>
         </div>
@@ -44,14 +44,15 @@ export default {
 .status {
     font-size: 13px;
     color: #f44336;
-    text-align: left;
-    padding: 12px 0;
-    float: left;
+    left:12px; 
 }
 .button {
-    float: right;
+    position: absolute;
+    right: 12px;
+    top: 0;
 }
 .image-wrapper {
+    background-color: hotpink;
     width: 250px;
     height: 220px;
 }

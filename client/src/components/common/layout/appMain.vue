@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <!-- <router-view/> -->
+    <div class="wrapper">
+        <router-view/>
     </div>
 </template>
 

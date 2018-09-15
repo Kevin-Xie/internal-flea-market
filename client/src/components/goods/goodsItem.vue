@@ -1,15 +1,16 @@
 <template>
     <el-card :body-style="{ padding: '0px' }" shadow="hover">
-        <div class="image-wrapper">
-            <img src="../../assets/car.jpg" class="image">
-        </div>
-        <div style="padding:12px; position: relative;">
-            <span style="position: relative;">{{goods.name}}</span>
-            <span style="position: absolute; right: 12px;">￥{{goods.price}}</span> 
-        </div>
-        <div style="padding:12px; position: relative;">
-            <span class="status">{{ goods.status }}</span>
-            <el-button type="text" class="button" @click="switchShowDetail">查看详情</el-button>
+        <!-- <img :src="goods.pictures[0]" class="image"> -->
+        <img src="../../assets/car.jpg" class="image">
+        <div class="goods-info-container">
+            <div class="goods-info">
+                <span>{{ goods.name }}</span>
+                <span style="float: right;">{{ goods.price }}</span>
+            </div>
+            <div class="goods-info">
+                <span style="color: red;">{{ goods.status }}</span>
+                <el-button type="text"  @click="switchShowDetail">查看详情</el-button>
+            </div>
         </div>
         <v-goods-detail v-if="showDetail" @close="switchShowDetail"></v-goods-detail>
     </el-card>
@@ -24,8 +25,15 @@ export default {
             showDetail: false
         }
     },
+    
     props: ['goods'],
+    
     components: { VGoodsDetail },
+    
+    computed: {
+        goodsImage: () => this.goods.picture[0],
+    },
+
     methods: {
         switchShowDetail() {
             this.showDetail = !this.showDetail;
@@ -36,31 +44,29 @@ export default {
     
 <style scoped>
 .el-card {
+    width: 250px;
+    font-size: 1.2em;
     margin: 20px;
-    width: 250px;
-    height: 300px;
-    display: inline-block;
-}
-.status {
-    font-size: 13px;
-    color: #f44336;
-    left:12px; 
-}
-.button {
-    position: absolute;
-    right: 12px;
-    top: 0;
-}
-.image-wrapper {
-    background-color: hotpink;
-    width: 250px;
-    height: 220px;
-}
-.image {
-    width: 100%;
-    height: 100%;
-    display: block;
 }
 
+.image {
+    width: 100%;
+    height: 220px;
+
+}
+
+.goods-info {
+    margin: 10px 0;
+}
+
+.goods-info-container {
+    position: relative;
+    margin: 10px;
+
+}
+.el-button {
+    float: right;
+    padding: 0;
+}
 </style>
     

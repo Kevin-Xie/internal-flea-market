@@ -14,17 +14,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Home,
-      children: [
-        {
-          path: 'home_1',
-          component: Home_1
-        },
-        {
-          path: 'home_2',
-          component: Home_2
-        }
-      ]
+      component: Home
     },
     {
       path: '/helloworld',

@@ -1,22 +1,33 @@
 <template>
   <div id="app">
-    <v-head>
-      <img src="./assets/logo.png" slot="logo" style="width: 50%;">
-      <v-menubar slot="menubar"></v-menubar>
-      <v-user-info slot="userInfo"></v-user-info>
-    </v-head>
-    <router-view/>
+    <el-container>
+      <el-header>
+        <v-app-header></v-app-header>
+      </el-header>  
+      <el-container>
+        <!-- <el-aside>
+          <v-app-aside></v-app-aside>
+        </el-aside> -->
+        <el-main>
+          <v-app-main></v-app-main>
+        </el-main>
+      </el-container>
+      <el-footer>
+        <v-app-footer></v-app-footer>
+      </el-footer>
+    </el-container>
   </div>
 </template>
 
 <script>
-import VHead from '@/components/common/layout/head';
-import VMenubar from '@/components/common/layout/menubar';
-import VUserInfo from '@/components/common/layout/userInfo';
+import VAppHeader from '@/components/common/layout/appHeader';
+import VAppMain from '@/components/common/layout/appMain';
+import VAppAside from '@/components/common/layout/appAside';
+import VAppFooter from '@/components/common/layout/appFooter';
 
 export default {
   name: 'App',
-  components: { VHead, VMenubar, VUserInfo },
+  components: { VAppHeader, VAppAside, VAppMain, VAppFooter, },
 }
 </script>
 
@@ -25,8 +36,10 @@ export default {
   font-family: 'Microsoft YaHei', 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  /*margin-top: 60px;*/
+}
+body {
+  margin: 0; 
+  padding: 0;
 }
 </style>

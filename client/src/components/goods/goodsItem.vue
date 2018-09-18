@@ -47,6 +47,7 @@ export default {
     width: 250px;
     font-size: 1.2em;
     margin: 20px;
+    /* display: inline-block;     */
 }
 
 .image {

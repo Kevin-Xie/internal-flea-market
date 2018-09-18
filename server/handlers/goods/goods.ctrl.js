@@ -5,8 +5,16 @@ class GoodsHandler {
 
     }
 
-    async getAllGoods(req, res, next) {
-        let goodList = await GoodService.findAllGoods();
+    async getGoods(req, res, next) {
+        let goodList = await GoodService.findGoods();
+        res.json(goodList);
+    }
+
+    async getGoodsByPage(req, res, next) {
+        let pageSize = parseInt(Math.abs(req.query.pageSize)) || 10;
+        let pageNum = parseInt(Math.abs(req.query.pageNum)) || 1;
+        let limit = parseInt(Math.abs(req.query.limit)) || pageSize;
+        let goodList = await GoodService.findGoodsByPage(pageSize, pageNum, limit);
         res.json(goodList);
     }
 

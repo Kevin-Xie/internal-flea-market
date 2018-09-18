@@ -6,11 +6,12 @@ let router = express.Router();
 const MAX_UPLOAD_COUNT = 5
 
 
-router.get('/', GoodsHandler.getAllGoods);
+// router.get('/', GoodsHandler.getGoods);
 
 router.post('/', batchUploadGoodsPic(MAX_UPLOAD_COUNT), GoodsHandler.publishGoods);
 
 router.get('/:id', GoodsHandler.getGoodsById);
 
+router.get('/', GoodsHandler.getGoodsByPage);
 
 export default router;

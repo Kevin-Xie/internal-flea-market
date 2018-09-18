@@ -5,11 +5,20 @@ class GoodsService {
 
     }
 
-    async findAllGoods() {
+    async findGoods(limit = 50) {
         try {
-            return await GoodsModel.find({});
+            return await GoodsModel.find({}).sort('-createAt').limit(limit);
         } catch (error) {
            throw new Error(error) 
+        }
+    }
+
+    async findGoodsByPage(pageSize, pageNum, limit) {
+        try {
+            let skipNum = pageSize * (pageNum - 1) || 0;
+            return await GoodsModel.find({}).sort('-createAt').skip(skipNum).limit(limit);
+        } catch (error) {
+           throw new Error(error)             
         }
     }
 

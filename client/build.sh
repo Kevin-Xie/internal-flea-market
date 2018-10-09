@@ -11,7 +11,7 @@ docker container rm -f extract
 
 echo Building nginx_vue:latest
 # start build a image for vue with nginx
-docker build --no-cache -t nginx_vue:latest .
+docker build --no-cache -t fm_prs:latest .
 
 # delete the build result after all done.
 rm -rf ./dist

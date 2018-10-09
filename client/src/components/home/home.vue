@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<v-top-banner></v-top-banner>
-		<!-- <v-goods-list></v-goods-list> -->
+		<v-goods-list></v-goods-list>
 	</div>
 </template>
 

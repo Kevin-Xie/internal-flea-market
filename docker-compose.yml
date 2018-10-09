@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    image: mongo:latest
+    ports: 
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+    container_name: fm_db
+
+  fm-prs:
+    image: "fm_prs:latest"
+    ports:
+     - 80:80/tcp
+    container_name: fm_prs
+    command: nginx -g "daemon off;"
+
+  fm-dom:
+    image: "fm_dom:latest"
+#    restart: always
+    ports:
+     - 8000:3000
+    container_name: fm_dom
+    command: npm run prod
+    environment:
+      - DB_PORT_27017_TCP_ADDR=db:27017
+    depends_on: 
+      - db
+

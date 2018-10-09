@@ -1,11 +1,13 @@
 <template>
 	<div>
-		<v-goods-list></v-goods-list>
+		<v-top-banner></v-top-banner>
+		<!-- <v-goods-list></v-goods-list> -->
 	</div>
 </template>
 
 <script>
 import VGoodsList from '../goods/goodsList'
+import VTopBanner from '../advertisement/topBanner'
 export default {
 	name: 'home',
 	data() {
@@ -13,7 +15,7 @@ export default {
 			goodsList: []
 		}
 	},
-	components: { VGoodsList }
+	components: { VGoodsList, VTopBanner }
 }
 </script>
 

@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 // init session, save session to DB
 app.use(session({

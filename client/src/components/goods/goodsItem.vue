@@ -17,7 +17,7 @@
 </template>
     
 <script>
-import VGoodsDetail from './GoodsDetail'    
+import VGoodsDetail from './goodsDetail'    
 export default {
     name: 'goodsItem',
     data() {

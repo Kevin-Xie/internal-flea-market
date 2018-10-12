@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build PRS image') {
+            steps {
+                sh 'chmod 777 ./client/jenkins/scripts/build.sh'
+                sh './client/jenkins/scripts/build.sh'
+            }
+        }
+    }
+}
+
+
+

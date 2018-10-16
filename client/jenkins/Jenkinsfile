@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build PRS image') {
             steps {
-                sh './scripts/build.sh'
+                sh './client/jenkins/scripts/build.sh'
             }
         }
     }

@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build PRS image') {
+            steps {
+                sh './scripts/build.sh'
+            }
+        }
+    }
+}
+
+
+

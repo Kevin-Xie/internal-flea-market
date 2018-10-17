@@ -6,7 +6,7 @@ docker build -t vuejs:build -f ./client/Dockerfile.build ./client/
 
 # run up a container and copy the build result to ./dist, then delete this container
 docker container create --name extract vuejs:build 
-docker container cp extract:/app/dist ./dist
+docker container cp extract:/app/dist ./client/dist
 docker container rm -f extract
 
 echo Building fm_prs:latest
@@ -14,4 +14,4 @@ echo Building fm_prs:latest
 docker build --no-cache -t fm_prs:latest -f ./client/Dockerfile ./client/
 
 # delete the build result after all done.
-rm -rf ./dist
+rm -rf ./client/dist

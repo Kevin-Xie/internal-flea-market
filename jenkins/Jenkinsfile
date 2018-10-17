@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build FM_PRS') {
+            steps {
+                sh 'chmod +x ./client/jenkins/scripts/build.sh'
+                sh './client/jenkins/scripts/build.sh'
+            }
+        }
+
+        stage('Build FM_DOM') {
+            steps {
+                sh 'chmod +x ./server/jenkins/scripts/build.sh'
+                sh './server/jenkins/scripts/build.sh'
+            }
+        }
+
+        stage('Deploy FM') {
+            steps {
+                sh 'docker-compose up'
+            }
+        }
+    }
+}

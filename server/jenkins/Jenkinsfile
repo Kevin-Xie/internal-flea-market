@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Build DOM image') {
             steps {
-                sh 'chmod +x ./server/jenkins/build.sh'
-                sh './server/jenkins/build.sh'
+                sh 'chmod +x ./server/jenkins/scripts/build.sh'
+                sh './server/jenkins/scripts/build.sh'
             }
         }
     }

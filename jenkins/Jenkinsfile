@@ -32,7 +32,7 @@ pipeline {
 
         stage('Deploy FM') {
             steps {
-                
+                sh 'docker images | grep 10.0.2.15'
             }
         }
     }

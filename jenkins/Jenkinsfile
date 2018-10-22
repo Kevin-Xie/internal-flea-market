@@ -9,6 +9,13 @@ pipeline {
             }
         }
 
+        stage('Push FM_PRS') {
+            steps {
+                sh 'chmod +x ./client/jenkins/scripts/push.sh'
+                sh './client/jenkins/scripts/push.sh'
+            }
+        }
+
         stage('Build FM_DOM') {
             steps {
                 sh 'chmod +x ./server/jenkins/scripts/build.sh'
@@ -16,9 +23,16 @@ pipeline {
             }
         }
 
+        stage('Push FM_DOM') {
+            steps {
+                sh 'chmod +x ./server/jenkins/scripts/push.sh'
+                sh './server/jenkins/scripts/push.sh'
+            }
+        }
+
         stage('Deploy FM') {
             steps {
-                sh 'docker-compose up'
+                
             }
         }
     }
